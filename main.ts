@@ -31,6 +31,7 @@ namespace stringLed {
                 } else {
                     led.unplot(i, j);
                 }
+                counter++;
             }
         }
     }
