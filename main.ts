@@ -24,9 +24,7 @@ namespace stringLed {
     //% block
     export function displayLedsFromString(str: string): void {
         let counter = 0;
-        if (str.length < 25) {
-            str += "0000000000000000000000000"
-        }
+        str += "0000000000000000000000000"
         for (let j = 0; j <= 4; j++) {
             for (let i = 0; i <= 4; i++) {
                 if (str.charAt(counter) == "1") {
