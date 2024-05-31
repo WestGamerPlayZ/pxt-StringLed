@@ -19,7 +19,7 @@ namespace stringLed {
     }
 
     /**
-     * Displays a series of LEDs based of a string. Each "1" means that the LED will be on, each "0" means that the LED will be off. If the string is less than 25 digits, the remaining LEDs will turn off. If it is more than 25 digits, then the extra digits will be ignored.
+     * Displays a series of LEDs based of a string. Each "1" means that the LED will be on, each "0" means that the LED will be off. If the string is less than 25 digits, the remaining LEDs will turn off. If there are more than 25 digits, then the extra digits will be ignored. If one of the digits of the first 25 characters of the string is different from "0" and "1" then a X will appear.
      */
     //% block
     export function displayLedsFromString(str: string): void {
@@ -29,8 +29,10 @@ namespace stringLed {
             for (let i = 0; i <= 4; i++) {
                 if (str.charAt(counter) == "1") {
                     led.plot(i, j);
-                } else {
+                } else if (str.charAt(counter) == "0") {
                     led.unplot(i, j);
+                } else {
+                    basic.showIcon(IconNames.No)
                 }
                 counter++;
             }
